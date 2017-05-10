@@ -3,16 +3,26 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.routing.module';
+
+import { AppComponent } from './containers/app/app.component';
+
+import components from './components';
+import containers from './containers';
+import { NotFoundComponent } from './containers/not-found/not-found.component';
+
+// import services from './services';
 
 @NgModule({
   declarations: [
-    AppComponent
+    containers,
+    components,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
