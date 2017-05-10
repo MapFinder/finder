@@ -8,7 +8,7 @@ const {
   NotFoundComponent
 } = containers;
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
