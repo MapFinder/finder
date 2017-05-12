@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { containers } from './containers';
-const {
+import {
   HomeComponent,
   MapComponent,
   NotFoundComponent
-} = containers;
+} from './containers';
 
 export const routes: Routes = [
   {

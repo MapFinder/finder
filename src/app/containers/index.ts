@@ -3,7 +3,8 @@ import { HomeComponent } from './home/home.component';
 import { MapComponent } from './map/map.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
-export const containers = {
+
+export {
   AppComponent,
   HomeComponent,
   MapComponent,
@@ -11,4 +12,9 @@ export const containers = {
 };
 
 
-export default Object.keys(containers).map(key => containers[key]);
+export default [
+  AppComponent,
+  HomeComponent,
+  MapComponent,
+  NotFoundComponent,
+];

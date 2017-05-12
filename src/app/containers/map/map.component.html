@@ -1,3 +1,14 @@
-<p>
-  map works!
-</p>
+<div class="tool-box">
+  <div class="item">
+    <finder-svg
+      class="icon"
+      [ngClass]="{ 'active': drawing }"
+      src="assets/images/map/select.svg"
+      (click)="select()"
+    ></finder-svg>
+  </div>
+  <div class="item">
+    <finder-svg class="icon" src="assets/images/map/add.svg"></finder-svg>
+  </div>
+</div>
+<div #map class="map"></div>

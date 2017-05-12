@@ -1,0 +1,23 @@
+:host {
+  background-color: rgba(51, 51, 51, .9);
+  color: #eee;
+  width: 50px;
+}
+
+.item {
+  padding: 10px;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.icon /deep/ svg {
+  fill: #fff;
+  width: 30px;
+  transition: fill .3s;
+}
+
+.icon /deep/ svg:hover {
+  fill: #e06868;
+}

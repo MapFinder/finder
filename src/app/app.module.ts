@@ -9,14 +9,12 @@ import { AppComponent } from './containers/app/app.component';
 
 import components from './components';
 import containers from './containers';
-import { NotFoundComponent } from './containers/not-found/not-found.component';
-
-// import services from './services';
+import { services } from './services';
 
 @NgModule({
   declarations: [
-    containers,
-    components,
+    ...containers,
+    ...components,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +22,9 @@ import { NotFoundComponent } from './containers/not-found/not-found.component';
     HttpModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    ...services,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

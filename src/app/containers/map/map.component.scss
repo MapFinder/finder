@@ -1,0 +1,46 @@
+:host {
+  display: block;
+  height: 100vh;
+  position: relative;
+}
+
+.map {
+  height: 100vh;
+}
+
+.tool-box {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 10px;
+  padding: 0 10px;
+  background-color: rgba(#333, .9);
+  color: #fff;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.item {
+  padding: 10px;
+}
+
+.icon /deep/ svg {
+  fill: #fff;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  transition: fill .3s;
+  &:hover {
+    fill: #e06868;
+  }
+  &.active {
+    fill: #e06868;
+  }
+}
+
+
+.icon.active /deep/ svg {
+  fill: #e06868;
+}
