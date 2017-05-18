@@ -10,6 +10,7 @@ export class MapComponent implements OnInit {
   @ViewChild('map') mapEl;
   map: any;
   drawing = false;
+  adding = false;
   stopDrawing: Function;
 
   constructor(private gmaps: GoogleMapsService) { }
@@ -30,7 +31,14 @@ export class MapComponent implements OnInit {
       this.drawing = false;
       this.stopDrawing();
     }
+  }
 
+  addMarker() {
+    if (this.adding) { return; }
+
+    this.adding = true;
+    this.gmaps.addMarker(this.map)
+      .then(() => this.adding = false);
   }
 
 }

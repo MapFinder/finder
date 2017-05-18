@@ -68,7 +68,7 @@ export class GoogleMapsService {
         zoom: 3,
         mapTypeId: g.maps.MapTypeId.ROADMAP,
         zoomControl: true,
-        mapTypeControl: true,
+        mapTypeControl: false,
         scaleControl: true,
         streetViewControl: true,
         rotateControl: true
@@ -77,24 +77,38 @@ export class GoogleMapsService {
     }));
   }
 
+  addMarker(map) {
+    return new Promise(resolve => this.api().then(g => {
+      const handler = map.addListener('click', e => {
+        const marker = new google.maps.Marker({
+          position: e.latLng,
+          map,
+          animation: g.maps.Animation.DROP,
+        });
+        g.maps.event.removeListener(handler);
+        resolve(marker);
+      });
+    }));
+  }
+
 
   drawPolygon(map) {
     const polygonProps = {
       strokeColor: '#000000',
-      strokeOpacity: 1.0,
+      strokeOpacity: 0.9,
       strokeWeight: 3,
       fillColor: '#' + Math.floor(Math.random() * 16777215).toString(16),
       editable: true,
     };
     return new Promise(resolve => {
       this.api().then(g => {
-        const poly = new g.maps.Polygon();
+        const poly = new g.maps.Polygon(polygonProps);
         poly.setMap(map);
         const handler = map.addListener('click', e =>  poly.getPath().push(e.latLng));
         const stopDrawing = () => {
           g.maps.event.removeListener(handler);
+          poly.setMap(null);
           return {
-            poly,
             coords: poly.getPath().getArray().map(c => ({ lat: c.lat(), lng: c.lng() })),
           };
         };

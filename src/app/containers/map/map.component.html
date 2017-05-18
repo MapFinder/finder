@@ -8,7 +8,11 @@
     ></finder-svg>
   </div>
   <div class="item">
-    <finder-svg class="icon" src="assets/images/map/add.svg"></finder-svg>
+    <finder-svg
+      class="icon"
+      src="assets/images/map/add.svg"
+      (click)="addMarker()"
+    ></finder-svg>
   </div>
 </div>
 <div #map class="map"></div>
